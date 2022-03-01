@@ -16,6 +16,7 @@ public class Main {
         }
         drawGame(boardLen, boardXY);
         getInput(sc, boardLen, boardXY);
+        drawGame(boardLen, boardXY);
     }
     static void drawGame(int len, char[][] XY)
     {
@@ -24,11 +25,26 @@ public class Main {
             System.out.println(XY[i]);
         }
     }
-    static void getInput(Scanner sc, int len, char[][] XY)
+    static char[][] getInput(Scanner sc, int len, char[][] XY)
     {
         int input = sc.nextInt();
         int X = Integer.toString(input).charAt(0);
         int Y = Integer.toString(input).charAt(1);
         //Gå till rätt Y Koordinat först, sedan gå till rätt X Koordinat. For loop.
+        for(int i = 0; i < len; i++)
+        {
+            if (X == i)
+            {
+                for (int j = 0; j < len; j++)
+                {
+                    if (Y == j)
+                    {
+                        XY[i][j] = 'X';
+                        System.out.println(XY[i][j]);
+                    }
+                }
+            }
+        }
+        return XY;
     }
 }
